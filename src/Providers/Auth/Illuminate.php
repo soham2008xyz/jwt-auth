@@ -3,22 +3,25 @@
 namespace Tymon\JWTAuth\Providers\Auth;
 
 use Exception;
-use Illuminate\Auth\AuthManager;
-use Tymon\JWTAuth\Contracts\Providers\Auth;
+//use Illuminate\Auth\AuthManager;
+use Ollieread\Multiauth\MultiManager;
+use Tymon\JWTAuth\Contracts\Providers\Auth as AuthContract;
+use Auth;
 
-class Illuminate implements Auth
+class Illuminate implements AuthContract
 {
     /**
-     * @var \Illuminate\Auth\AuthManager
+     * @var \Ollieread\Multiauth\MultiManager
      */
     protected $auth;
 
     /**
-     * @param \Illuminate\Auth\AuthManager  $auth
+     * @param \Ollieread\Multiauth\MultiManager  $auth
      */
-    public function __construct(AuthManager $auth)
+    public function __construct(MultiManager $auth)
     {
         $this->auth = $auth;
+        //$this->auth = Auth::user();
     }
 
     /**
