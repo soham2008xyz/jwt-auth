@@ -18,7 +18,7 @@ class IlluminateAuthAdapter implements AuthInterface
      */
     public function __construct(MultiManager $auth)
     {
-        $this->auth = $auth;
+        $this->auth = $auth->user();
     }
 
     /**
@@ -54,6 +54,6 @@ class IlluminateAuthAdapter implements AuthInterface
      */
     public function user()
     {
-        return $this->auth->user();
+        return $this->auth->get();
     }
 }
