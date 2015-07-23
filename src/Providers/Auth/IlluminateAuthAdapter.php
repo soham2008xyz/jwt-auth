@@ -3,19 +3,20 @@
 namespace Tymon\JWTAuth\Providers\Auth;
 
 use Exception;
-use Illuminate\Auth\AuthManager;
+//use Illuminate\Auth\AuthManager;
+use Ollieread\Multiauth\MultiManager;
 
 class IlluminateAuthAdapter implements AuthInterface
 {
     /**
-     * @var \Illuminate\Auth\AuthManager
+     * @var \Ollieread\Multiauth\MultiManager
      */
     protected $auth;
 
     /**
-     * @param \Illuminate\Auth\AuthManager  $auth
+     * @param \Ollieread\Multiauth\MultiManager  $auth
      */
-    public function __construct(AuthManager $auth)
+    public function __construct(MultiManager $auth)
     {
         $this->auth = $auth;
     }
